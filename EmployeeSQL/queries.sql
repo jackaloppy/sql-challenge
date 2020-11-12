@@ -96,3 +96,12 @@ SELECT last_name, COUNT(last_name)
 FROM employees
 GROUP BY last_name
 ORDER BY COUNT(last_name) DESC;
+
+--Bonus
+SELECT e.first_name, e.last_name, t.title, s.salary  
+FROM titles t 
+LEFT JOIN employees e 
+ON e.emp_title_id = t.title_id 
+LEFT JOIN salaries s 
+ON s.emp_no = e.emp_no
+WHERE e.emp_no = 499942;
